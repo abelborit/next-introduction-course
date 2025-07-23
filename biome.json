@@ -111,7 +111,6 @@
         "noReactPropAssign": "warn",
         "noShadow": "error",
         "noUnassignedVariables": "error",
-        "noUnresolvedImports": "error",
         "recommended": true,
         "useExhaustiveSwitchCases": "error",
         "useExportsLast": "error",
