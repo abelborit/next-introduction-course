@@ -14,10 +14,10 @@
     "check": "npm run lint && npm run format",
     "fix": "npm run lint:fix && npm run format:fix",
 
-    "lint:biome": "biome check app",
-    "lint:biome:fix": "biome check app --write",
-    "format:biome": "biome format app",
-    "format:biome:fix": "biome format app --write",
+    "lint:biome": "biome check .",
+    "lint:biome:fix": "biome check . --write",
+    "format:biome": "biome format .",
+    "format:biome:fix": "biome format . --write",
     "check:biome": "npm run lint:biome && npm run format:biome",
     "fix:biome": "npm run lint:biome:fix && npm run format:biome:fix"
   },
