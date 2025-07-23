@@ -1,8 +1,16 @@
 // eslint.config.js
 
+/*
+Using the node: protocol is more explicit and signals that the imported module belongs to Node.js.
+
+- https://biomejs.dev/linter/rules/use-nodejs-import-protocol/
+- https://dev.to/yenyih/new-nodejs-protocol-imports-3pnf
+- https://2ality.com/2021/12/node-protocol-imports.html
+- https://nodejs.org/api/esm.html#node-imports
+*/
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { FlatCompat } from '@eslint/eslintrc';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
 // Necesario para que funcione __dirname con ESM (Next.js usa ESM por defecto)
 const __filename = fileURLToPath(import.meta.url);
