@@ -1,5 +1,38 @@
 import Image from 'next/image';
 
+const footerOptions = [
+  {
+    description: 'Learn',
+    image: {
+      alt: 'File icon',
+      src: '/file.svg',
+    },
+    link: {
+      href: 'https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app',
+    },
+  },
+  {
+    description: 'Examples',
+    image: {
+      alt: 'Window icon',
+      src: '/window.svg',
+    },
+    link: {
+      href: 'https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app',
+    },
+  },
+  {
+    description: 'Go to nextjs.org →',
+    image: {
+      alt: 'Globe icon',
+      src: '/globe.svg',
+    },
+    link: {
+      href: 'https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app',
+    },
+  },
+];
+
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -12,6 +45,7 @@ export default function Home() {
           src="/next.svg"
           width={180}
         />
+
         <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
             Get started by editing{' '}
@@ -51,52 +85,26 @@ export default function Home() {
           </a>
         </div>
       </main>
+
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Image
-            alt="File icon"
-            aria-hidden={true}
-            height={16}
-            src="/file.svg"
-            width={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Image
-            alt="Window icon"
-            aria-hidden={true}
-            height={16}
-            src="/window.svg"
-            width={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Image
-            alt="Globe icon"
-            aria-hidden={true}
-            height={16}
-            src="/globe.svg"
-            width={16}
-          />
-          Go to nextjs.org →
-        </a>
+        {footerOptions.map(element => (
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href={element.link.href}
+            key={element.description}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              alt={element.image.alt}
+              aria-hidden={true}
+              height={16}
+              src={element.image.src}
+              width={16}
+            />
+            {element.description}
+          </a>
+        ))}
       </footer>
     </div>
   );
