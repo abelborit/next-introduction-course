@@ -1,9 +1,9 @@
 /* si no se coloca dará un error similar a -- You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive. -- */
-"use client";
+'use client';
 
-import Link from "next/link";
-import style from "./index.module.css";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import style from './index.module.css';
 
 interface ActiveLinkProps {
   path: string;
@@ -17,7 +17,7 @@ export const ActiveLink = ({ name, path }: ActiveLinkProps) => {
   return (
     <Link
       className={`${style.link} ${
-        pathname === path ? style["active-link"] : ""
+        pathname === path ? style['active-link'] : ''
       }`}
       href={path}
     >
