@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"app/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"app/**/*.{js,jsx,ts,tsx}\" --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "check": "npm run lint && npm run format",
+    "fix": "npm run lint:fix && npm run format:fix"
   },
   "dependencies": {
     "@primer/octicons-react": "^19.15.4",

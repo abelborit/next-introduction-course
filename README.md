@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+| Script     | geniales                                                             |
+| ---------- | -------------------------------------------------------------------- |
+| lint       | Corre ESLint para verificar errores de código                        |
+| lint:fix   | Corre ESLint y arregla automáticamente errores si es posible         |
+| format     | Verifica si el código cumple con las reglas de Prettier (modo check) |
+| format:fix | Formatea todo el código con Prettier (modo write)                    |
+| check      | Verifica tanto ESLint como Prettier (sin modificar archivos)         |
+| fix        | Arregla errores con ESLint y formatea el código con Prettier         |
