@@ -120,3 +120,37 @@ Biome trata de leer tu eslint.config.mjs, pero al cargar eslint-config-next, est
 
 - Opción 2: No uses eslint-config-next con Biome
   - Si ya vas a usar Biome, no necesitas ESLint ni eslint-config-next, ya que Biome tiene su propio sistema de lint + format. Podrías desinstalar ESLint por completo y usar solo Biome
+
+---
+
+# Biome
+
+Biome es una cadena de herramientas integral para proyectos web que incluye un linter y un formateador. Sus reglas de JavaScript están diseñadas para aplicar el estilo del código, identificar posibles problemas y mejorar su calidad y rendimiento. Estas reglas se clasifican en diferentes grupos, cada uno de los cuales aborda un área específica:
+
+- Accessibility (a11y) - (Accesibilidad):
+  Reglas enfocadas en prevenir problemas de accesibilidad en aplicaciones web, como garantizar los atributos correctos de los elementos HTML para las tecnologías de asistencia.
+
+- Complexity (Complejidad):
+  Reglas que ayudan a identificar y simplificar estructuras de código excesivamente complejas que podrían ser difíciles de entender o mantener.
+
+- Correctness (Corrección):
+  Reglas que detectan código que se garantiza que es incorrecto o inútil, lo que ayuda a detectar errores de programación comunes.
+
+- Nursery (Enfermería):
+  Nuevas reglas en desarrollo que aún pueden ser inestables. No están habilitadas por defecto en las versiones estables y requieren una aceptación explícita.
+
+- Performance (Rendimiento):
+  Reglas destinadas a identificar maneras de escribir código JavaScript más eficiente y de ejecución más rápida.
+
+- Security (Seguridad):
+  Reglas que detectan posibles vulnerabilidades de seguridad en el código base.
+
+- Style (Estilo):
+  Reglas que imponen una forma consistente e idiomática de escribir código JavaScript, lo que promueve la legibilidad y el mantenimiento en todo el proyecto.
+
+- Suspicious (Sospechoso):
+  Reglas que detectan código que probablemente sea incorrecto o inútil, incluso si no se trata estrictamente de un error de sintaxis.
+
+Las reglas de Biome se pueden configurar en el archivo biome.json, lo que permite a los usuarios habilitar o deshabilitar reglas específicas, ajustar su gravedad (p. ej., error, advertencia) y personalizar su comportamiento para adaptarlo a los requisitos del proyecto. Biome también ofrece acciones de código (correcciones) para muchas reglas, que pueden resolver automáticamente los problemas detectados.
+
+---
