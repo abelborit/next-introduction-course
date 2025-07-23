@@ -1,49 +1,42 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
 
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "recommended": true,
+        "useSortedAttributes": "on",
+        "useSortedKeys": "on",
+        "useSortedProperties": "on"
+      }
+    },
+    "enabled": true
   },
 
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**",
+      "!**/.next/**",
+      "!**/dist/**",
+      "!**/build/**"
+    ]
   },
 
   "formatter": {
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
     "enabled": true,
+    "expand": "auto",
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 80,
-    "attributePosition": "auto",
-    "bracketSameLine": false,
-    "bracketSpacing": true,
-    "expand": "auto",
     "useEditorconfig": true
-  },
-
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-
-  "javascript": {
-    "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "semicolons": "always",
-      "arrowParentheses": "asNeeded",
-      "bracketSameLine": false,
-      "quoteStyle": "single",
-      "attributePosition": "auto",
-      "bracketSpacing": true
-    }
   },
 
   "html": {
@@ -52,12 +45,134 @@
     }
   },
 
-  "assist": {
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "asNeeded",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
+
+  "linter": {
+    "domains": {
+      "next": "all",
+      "react": "all"
+    },
     "enabled": true,
-    "actions": {
-      "source": {
-        "organizeImports": "on"
+    "includes": ["**/*.{js,jsx,ts,tsx}"],
+    "rules": {
+      "a11y": {
+        "recommended": true
+      },
+      "complexity": {
+        "recommended": true
+      },
+      "correctness": {
+        "noNodejsModules": "warn",
+        "noRenderReturnValue": "error",
+        "noUndeclaredVariables": {
+          "level": "warn",
+          "options": {
+            "checkTypes": false
+          }
+        },
+        "recommended": true,
+        "useExhaustiveDependencies": "error",
+        "useHookAtTopLevel": "warn",
+        "useJsxKeyInIterable": {
+          "level": "error",
+          "options": {
+            "checkShorthandFragments": true
+          }
+        }
+      },
+      "nursery": {
+        "noBitwiseOperators": {
+          "level": "error",
+          "options": {
+            "allow": ["&", "|", "&&", "||", "??", "^", "~", "<<", ">>", ">>>"]
+          }
+        },
+        "noExcessiveLinesPerFunction": {
+          "level": "warn",
+          "options": {
+            "maxLines": 50,
+            "skipBlankLines": true,
+            "skipIifes": true
+          }
+        },
+        "noMagicNumbers": "warn",
+        "noReactPropAssign": "warn",
+        "noShadow": "error",
+        "noUnassignedVariables": "error",
+        "noUnresolvedImports": "error",
+        "recommended": true,
+        "useExhaustiveSwitchCases": "error",
+        "useExportsLast": "error",
+        "useGoogleFontPreconnect": "warn",
+        "useIterableCallbackReturn": "error",
+        "useObjectSpread": "warn",
+        "useSingleJsDocAsterisk": "warn"
+      },
+      "performance": {
+        "noImgElement": "warn",
+        "noNamespaceImport": "error",
+        "noReExportAll": "error",
+        "recommended": true
+      },
+      "recommended": true,
+      "security": {
+        "recommended": true
+      },
+      "style": {
+        "noExportedImports": "error",
+        "noImplicitBoolean": "warn",
+        "noNegationElse": "warn",
+        "noProcessEnv": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "recommended": true,
+        "useAtIndex": "warn",
+        "useBlockStatements": "warn",
+        "useCollapsedElseIf": "warn",
+        "useCollapsedIf": "warn",
+        "useConsistentCurlyBraces": "error",
+        "useDefaultSwitchClause": "error",
+        "useEnumInitializers": "error",
+        "useExplicitLengthCheck": "warn",
+        "useExportType": "error",
+        "useFragmentSyntax": "error",
+        "useNumberNamespace": "warn",
+        "useSelfClosingElements": "warn",
+        "useSingleVarDeclarator": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error"
+      },
+      "suspicious": {
+        "noAlert": "warn",
+        "noConsole": "warn",
+        "noDuplicateTestHooks": "error",
+        "noEmptyBlockStatements": "error",
+        "noMisplacedAssertion": "error",
+        "noVar": "error",
+        "recommended": true,
+        "useAwait": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error"
       }
     }
+  },
+
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }

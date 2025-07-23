@@ -1,3 +1,5 @@
+<!-- https://biomejs.dev/reference/configuration/ -->
+
 {
   "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
 
@@ -31,6 +33,10 @@
   // Reglas de linting generales
   "linter": {
     "enabled": true,
+    "domains": {
+      "next": "all", // https://next.biomejs.dev/linter/domains/#next
+      "react": "all" // https://next.biomejs.dev/linter/domains/#react
+    },
     "rules": {
       "recommended": true // Activa todas las reglas recomendadas por Biome
       // Puedes añadir reglas específicas aquí más adelante si necesitas afinar
