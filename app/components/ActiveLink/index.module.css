@@ -1,0 +1,11 @@
+/* para que tome los estilos con el "@apply" es necesario colocar el "@reference" -- https://tailwindcss.com/docs/functions-and-directives#reference-directive -- */
+@reference "tailwindcss";
+
+/* si sale un warning como -- Unknown at rule @apply -- bastaría solo con cambiar el tipo de archivo de "CSS" a "Tailwind CSS" */
+.link {
+  @apply hover:underline hover:text-blue-300 mr-2 transition-all;
+}
+
+.active-link {
+  @apply text-blue-500;
+}

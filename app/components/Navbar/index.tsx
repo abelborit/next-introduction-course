@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HomeIcon } from "@primer/octicons-react";
+import { ActiveLink } from "../ActiveLink";
 
 const navItems = [
   { path: "/about", name: "About" },
@@ -21,9 +22,13 @@ export const Navbar = () => {
 
       {/* -- https://nextjs.org/docs/pages/api-reference/components/link#prefetch -- Quiere decir que el "prefetch" estaría habilitado solo para producción "Prefetching is only enabled in production." */}
       {navItems.map((element) => (
-        <Link key={element.name} className="mr-2" href={element.path}>
-          {element.name}
-        </Link>
+        <ActiveLink
+          /* otra forma hacer un spreed operator para enviar todas las propiedades */
+          // {...element}
+          name={element.name}
+          path={element.path}
+          key={element.name}
+        />
       ))}
     </nav>
   );
