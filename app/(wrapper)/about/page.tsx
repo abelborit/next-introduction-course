@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { bebas } from '@/app/ui/fonts';
 
 export const metadata: Metadata = {
-  title: 'About Page - Title',
   description: 'About Page - Description',
   keywords: ['About Page', 'About', 'Page', 'Next'],
+  title: 'About Page - Title',
 };
 
 export default function AboutPage() {
