@@ -121,6 +121,10 @@ Biome trata de leer tu eslint.config.mjs, pero al cargar eslint-config-next, est
 - Opción 2: No uses eslint-config-next con Biome
   - Si ya vas a usar Biome, no necesitas ESLint ni eslint-config-next, ya que Biome tiene su propio sistema de lint + format. Podrías desinstalar ESLint por completo y usar solo Biome
 
+- Opción 3: https://github.com/biomejs/biome/issues/2935#issuecomment-2133008414
+- Después usar: _npx @biomejs/biome migrate eslint --write_
+- Después usar (incluir reglas customizadas): _npx @biomejs/biome migrate eslint --write --include-inspired_
+
 ---
 
 # Biome
@@ -152,5 +156,37 @@ Biome es una cadena de herramientas integral para proyectos web que incluye un l
   Reglas que detectan código que probablemente sea incorrecto o inútil, incluso si no se trata estrictamente de un error de sintaxis.
 
 Las reglas de Biome se pueden configurar en el archivo biome.json, lo que permite a los usuarios habilitar o deshabilitar reglas específicas, ajustar su gravedad (p. ej., error, advertencia) y personalizar su comportamiento para adaptarlo a los requisitos del proyecto. Biome también ofrece acciones de código (correcciones) para muchas reglas, que pueden resolver automáticamente los problemas detectados.
+
+---
+
+# Next JS & TypeScript - Next Introduction Course
+
+## Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+- En esta sección veremos como desplegar nuestra aplicación de Next en distintos lugares.
+
+### \* PASOS A REALIZAR:
+
+1. Generar el build de producción / distribución
+
+2. Probar el procedimiento de construcción y ejecución
+
+3. Desplegar la aplicación en Vercel (Creado por la misma gente de Next.js)
+
+4. Generar una imagen de Docker
+
+5. Crear la imagen de Docker siguiendo las prácticas recomendadas por Next
+
+6. Correr la aplicación desde Docker Desktop
+
+### \* NOTAS:
+
+- Docker - Construcción recomendada:
+  - https://nextjs.org/docs/pages/getting-started/deploying#docker-image
+  - https://nextjs.org/docs/app/getting-started/deploying#docker
+- ejemplo
+- ejemplo
 
 ---
