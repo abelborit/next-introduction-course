@@ -1,0 +1,55 @@
+# — Selecciona como base la imagen oficial de Node.js v18 sobre Alpine Linux.
+# — Alpine es muy ligera (~5 MB) y trae únicamente lo esencial, reduciendo el tamaño final de tu imagen.
+FROM node:18-alpine
+
+# — Establece /app como directorio de trabajo dentro del contenedor.
+# — A partir de aquí, todas las rutas de los siguientes comandos serán relativas a /app.
+WORKDIR /app
+
+# — Copia solo el package.json desde tu máquina al directorio raíz (/package.json) del contenedor.
+# — Se hace antes de copiar todo el código para aprovechar el caché de Docker: si package.json no cambia, Docker reutiliza la capa de instalación de dependencias.
+COPY package.json /
+
+# — Ejecuta npm install dentro del contenedor (en /app porque es el WORKDIR).
+# — Instala todas las dependencias listadas en package.json y crea node_modules.
+RUN npm install
+
+# — Copia el resto de tu código fuente (toda la carpeta de tu proyecto) al contenedor.
+# — Al hacerlo después de instalar dependencias, evitas reinstalarlas cada vez que cambias tu código.
+COPY . /
+# Si hay problemas con los estilos que no se cargaron, entonces utilizarlo de esta forma
+# COPY . .
+
+# — Corre el script build definido en tu package.json (por ejemplo, next build si usas Next.js).
+# — Genera la versión optimizada en la carpeta de salida (e.g. .next, dist, etc.).
+RUN npm run build
+
+# — Documenta que tu contenedor escucha en el puerto 3000.
+# — No abre el puerto en el host, pero sirve como indicación para quien use la imagen.
+EXPOSE 3000
+
+# — Define el comando por defecto al arrancar el contenedor: npm start.
+# — Debe corresponderse con el script de producción en tu package.json (por ejemplo, next start -p 3000).
+CMD [ "npm", "start" ]
+
+# **************************************************************************************************************
+# Flujo de construcción y ventajas
+## Caché de dependencias: al copiar primero solo package.json e instalar dependencias, Docker reutiliza esa capa si no cambias tus dependencias, acelerando reconstrucciones.
+
+## Ligereza: con node:18-alpine reduces el tamaño de la imagen y minimizas la superficie de ataque.
+
+## Separación de fases: instalar deps → copiar código → build → arranque. Esto garantiza que tu capa de npm install no se invalide con cambios frecuentes en tu código fuente.
+# **************************************************************************************************************
+# Comando para crear la imagen de docker
+## docker build -t next-introduction-course .
+### -t -> agregarle un tag a la imagen de docker que vamos a crear
+### . -> le estamos indicando que el "dockerfile" está en el root de la aplicación
+# **************************************************************************************************************
+# Comando para levantar la imagen de docker
+## docker container run -p 3000:3000 next-introduction-course
+### 3000:3000 -> publicar puerto de nuestra máquina : puerto del contenedor
+# **************************************************************************************************************
+# Comando para levantar la imagen de docker (forma detached -> no ver la ejecución en la terminal sino que se hace en segundo plano)
+## docker container run -dp 3000:3000 next-introduction-course
+### 3000:3000 -> publicar puerto de nuestra máquina : puerto del contenedor
+### -d -> desligado de la terminal que estamos usando

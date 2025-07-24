@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: 'standalone', // recomendado cuando se construyen imágenes de Docker
 };
 
 export default nextConfig;
