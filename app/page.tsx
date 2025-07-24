@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const footerOptions = [
   {
@@ -84,6 +85,10 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <Link className="text-2xl" href="/about">
+          - About Page -
+        </Link>
       </main>
 
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
